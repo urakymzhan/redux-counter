@@ -3,10 +3,12 @@ import './App.css';
 // redux imports
 import { connect } from 'react-redux';
 import { increment, decrement } from './actions';
+// import store from './store';
 class Counter extends React.Component {
   // we moved out our state to redux
   render() {
-    // console.log(this.props)
+    // console.log(store.getState());
+    console.log(this.props);
     const { count, dispatch } = this.props;
     // if used Ex: 2
     // const { count, increment, decrement } = this.props;
@@ -30,12 +32,11 @@ class Counter extends React.Component {
 //  its maps our redux store state to component and pass it as props
 const mapStateToProps = (state) => {
   return {
-    count: state.count
-  }
-}
+    count: state.count,
+  };
+};
 
 export default connect(mapStateToProps)(Counter);
 
 // if use Ex: 2
 // export default connect(mapStateToProps, {increment, decrement})(Counter);
-
